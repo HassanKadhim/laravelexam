@@ -28,14 +28,14 @@
 
             </div>
             <div class="text-center @if($sold) text-red-500 @else text-blue-500 @endif font-semibold text-xl">
-                Car Name
+                {{$car->name}}
             </div>
             @if($sold)
                 <span class="@if($sold) text-red-800 @else text-blue-800 @endif focus:outline-none @if($sold) hover:bg-red-100 @else hover:bg-blue-100 @endif focus:ring-2 font-medium rounded-lg text-sm px-2.5 py-2.5">
-                    <i class="fa-solid fa-store-slash"></i>
+                    <i  class="fa-solid fa-store-slash"></i>
                 </span>
             @else
-                <button type="button" class="@if($sold) text-red-800 @else text-blue-800 @endif focus:outline-none @if($sold) hover:bg-red-100 @else hover:bg-blue-100 @endif focus:ring-2 font-medium rounded-lg text-sm px-2.5 py-2.5">
+                <button wire:click = "sell({{$car->id}})" type="button" class="@if($sold) text-red-800 @else text-blue-800 @endif focus:outline-none @if($sold) hover:bg-red-100 @else hover:bg-blue-100 @endif focus:ring-2 font-medium rounded-lg text-sm px-2.5 py-2.5">
                     <i class="fa-solid fa-store"></i>
                 </button>
             @endif
@@ -48,7 +48,7 @@
                     Price
                 </span>
                 <span class="@if($sold) text-red-800 bg-red-200 @else text-blue-800 bg-blue-200 @endif text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                    1,500 $
+                    {{$car->price}}
                 </span>
             </div>
 
@@ -58,7 +58,7 @@
                     Model
                 </span>
                 <span class="@if($sold) bg-red-200 text-red-800 @else bg-blue-200 text-blue-800 @endif text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                    BMW
+                    {{$car->model}}
                 </span>
             </div>
         </div>

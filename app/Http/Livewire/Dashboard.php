@@ -3,11 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Car;
 
 class Dashboard extends Component
 {
+    protected $listeners = ['$refresh'];
     public function render()
     {
-        return view('livewire.dashboard');
+        $cars = Car::get(['id' , 'is_sold']);
+        return view('livewire.dashboard' , ['cars' => $cars]);
     }
 }
